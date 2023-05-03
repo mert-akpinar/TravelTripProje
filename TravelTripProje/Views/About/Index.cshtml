@@ -1,0 +1,18 @@
+﻿@using TravelTripProje.Models.Classes;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>Hakkımızda</h3>
+            @foreach (var x in Model)
+            {
+                <img src="@x.ImageUrl" alt="" />
+                <p>@x.Description</p>
+            }
+        </div>
+    </div>
+</div>
