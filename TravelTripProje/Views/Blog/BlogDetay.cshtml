@@ -1,5 +1,4 @@
-﻿@using TravelTripProje.Models.Classes;
-@model List<Blog>
+﻿@model TravelTripProje.Models.Classes.BlogComment
 @{
     ViewBag.Title = "BlogDetay";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -30,22 +29,25 @@
         <div class="container">
             <div class="col-md-8 single-main">
                 <div class="single-grid">
-                    @foreach (var x in Model)
+                    @foreach (var x in Model.Deger1)
                     {
                     <img src="@x.BlogImageUrl" alt="" style="margin-bottom:20px"/>
                     <h2>@x.Title</h2>
                     <p>@x.Description</p>
                     }
                 </div>
+                @foreach (var y in Model.Deger2)
+                {
                 <ul class="comment-list">
                    <li>
                         <img src="~/blogsite/images/avatar.png" class="img-responsive" alt="">
                         <div class="desc">
-                            <p>Necip Fazıl Karaca: yorum yazacak...</p>
+                            <p>@y.UserName: @y.Comment</p>
                         </div>
                         <div class="clearfix"></div>
                     </li>
                 </ul>
+                }
                 <div class="content-form">
                     <h3>Bir yorum yapın</h3>
                     <form>

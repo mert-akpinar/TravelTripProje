@@ -8,16 +8,19 @@ namespace TravelTripProje.Controllers
 {
     public class BlogController : Controller
     {
+        BlogComment Bc = new BlogComment();
         Context c = new Context();
         public ActionResult Index()
         {
-            var values = c.Blogs.ToList();
-            return View(values);
+            Bc.Deger1 = c.Blogs.ToList();
+            Bc.Deger3 = c.Blogs.OrderByDescending(x => x.ID).Take(3).ToList();
+            return View(Bc);
         }
         public ActionResult BlogDetay(int id)
-        {
-            var values = c.Blogs.Where(x => x.ID == id ).ToList();
-            return View(values);
+        {            
+            Bc.Deger1 = c.Blogs.Where(x=>x.ID == id).ToList();
+            Bc.Deger2 = c.Commentss.Where(x => x.BlogID == id).ToList();
+            return View(Bc);
         }
     }
 }

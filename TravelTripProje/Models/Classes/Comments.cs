@@ -14,6 +14,6 @@ namespace TravelTripProje.Models.Classes
         public string Mail { get; set; }
         public string Comment { get; set; }
         public int BlogID { get; set; } 
-        public Blog Blog { get; set; }
+        public virtual Blog Blog { get; set; }
     }
 }
