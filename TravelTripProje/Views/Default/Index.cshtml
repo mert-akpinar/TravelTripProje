@@ -1,4 +1,5 @@
-﻿
+﻿@using TravelTripProje.Models.Classes
+@model List<Blog>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -18,7 +19,7 @@
                                 <img src="~/web/images/glass.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Restaurants</p>
+                                <p>Restorantlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -27,7 +28,7 @@
                                 <img src="~/web/images/flight.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Flights</p>
+                                <p>Uçuşlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -36,7 +37,7 @@
                                 <img src="~/web/images/group.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Things to do</p>
+                                <p>Yapılacak Aktivitiler</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -53,12 +54,15 @@
                     </div>
                     <div class="header_bottom_right_images">
 
-                        <div class="slider">
+                        <div class="slider" style="width: 650px; height: 365px ">
                             <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
+                                @foreach (var x in Model)
+                                {
+                                <li><img src="@x.BlogImageUrl" alt=""></li>
+                                @*<li><img src="~/web/images/img2.jpg" alt=""></li>
                                 <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+                                <li><img src="~/web/images/img4.jpg" alt=""></li>*@
+                                }
                             </ul>
                         </div>
                     </div>
