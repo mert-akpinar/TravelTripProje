@@ -14,5 +14,10 @@ namespace TravelTripProje.Controllers
             var values = c.Blogs.ToList();
             return View(values);
         }
+        public ActionResult BlogDetay(int id)
+        {
+            var values = c.Blogs.Where(x => x.ID == id ).ToList();
+            return View(values);
+        }
     }
 }

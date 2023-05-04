@@ -1,19 +1,14 @@
 ﻿@using TravelTripProje.Models.Classes;
 @model List<Blog>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "BlogDetay";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
     <link href="~/blogsite/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="~/blogsite/css/style.css" rel='stylesheet' type='text/css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,35 +20,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
     <!----//webfonts---->
-   </head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    
+</head>
 <body>
-    <!---header---->
-    <div class="header">
-        <div class="container">
-           <!---start-top-nav---->
-            <div class="clearfix"></div>
-            <script>
-					$("span.menu").click(function(){
-					$(".top-menu ul").slideToggle("slow" , function(){
-					});
-					});
-            </script>
-            <!---//End-top-nav---->
-        </div>
-    </div>
-    <!--/header-->
+
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                @foreach (var x in Model)
-                {
-                    <div class="single-grid">
-                        <img src="@x.BlogImageUrl" alt="" style="margin-bottom: 20px" />
-                        <a href="/Blog/BlogDetay/@x.ID">@x.Title</a>
-                        <p>@x.Description</p>
-                    </div>
-                }
+                <div class="single-grid">
+                    @foreach (var x in Model)
+                    {
+                    <img src="@x.BlogImageUrl" alt="" style="margin-bottom:20px"/>
+                    <h2>@x.Title</h2>
+                    <p>@x.Description</p>
+                    }
                 </div>
+                <ul class="comment-list">
+                   <li>
+                        <img src="~/blogsite/images/avatar.png" class="img-responsive" alt="">
+                        <div class="desc">
+                            <p>Necip Fazıl Karaca: yorum yazacak...</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+                <div class="content-form">
+                    <h3>Bir yorum yapın</h3>
+                    <form>
+                        <input type="text" placeholder="Kullanıcı Adı" required />
+                        <input type="text" placeholder="Mail Adresi" required />
+                        <textarea placeholder="Yorum"></textarea>
+                        <input type="submit" value="Gönder" />
+                    </form>
+                </div>
+            </div>
 
             <div class="col-md-4 side-content">
                 <div class="recent">
@@ -72,14 +74,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
                         <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
                     </ul>
-                </div>
-                <div class="clearfix"></div>
+                </div> 
             </div>
-           
+            <div class="clearfix"></div>
         </div>
     </div>
-</body>
-</html>
-
-
+    </body>
+    </html>
 
